@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Installing Sublime Text on Ubuntu
+title: Installing Sublime Text on Ubuntu14.04
 ---
 
 <div class="message">

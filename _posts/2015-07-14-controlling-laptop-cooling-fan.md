@@ -13,7 +13,7 @@ To overcome the issue, there is package i8kmon.
 configure your values in /usr/bin/i8kmon
 
 change the Default array set config to
-
+```html
 <p>
 array set config {
    sysconfig   /etc/i8kmon.conf
@@ -102,3 +102,4 @@ $ i8kctl
 $ i8kctl
 1.0 A11 78QGMV1 45 -1 0 -1 0 -1 -1
 </p>
+```

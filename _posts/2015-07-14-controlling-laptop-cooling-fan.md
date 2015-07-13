@@ -29,10 +29,10 @@ array set config {
    unit        C
    t_high      80
    min_speed   2000
-   0           {{0 0}  -1  45  -1  45}
-   1           {{1 1}  40  60  45  65}
-   2           {{1 1}  50  70  55  75}
-   3           {{2 2}  60 128  65 128}
+   0           { {0 0}  -1  45  -1  45}
+   1           { {1 1}  40  60  45  65}
+   2           { {1 1}  50  70  55  75}
+   3           { {2 2}  60 128  65 128}
 }
 
 Description: generally a laptop temperature varies between 40-50 degrees. I have set 45 -50 a level so that whenever the temperature crosses 45 it activates fan and exhausts out the heat. Whenever the temperature goes down 45, the fan automatically stops. playing between 45 and 50.
@@ -41,10 +41,10 @@ Note: Dell laptops comes with only one fan so we can change the config to
 
 If we have only right fan in our laptop use "-" for left to notify only give command for right fan to work
 
-   0           {{- 0}  -1  45  -1  45}
-   1           {{- 1}  40  60  45  65}
-   2           {{- 1}  50  70  55  75}
-   3           {{- 2}  60 128  65 128}
+   0           { {- 0}  -1  45  -1  45}
+   1           { {- 1}  40  60  45  65}
+   2           { {- 1}  50  70  55  75}
+   3           { {- 2}  60 128  65 128}
 To check your temperature and fan status use i8kctl
 
 A sample watch of i8kctl of my laptop

@@ -8,12 +8,13 @@ Generally most of the Dell laptops with ubuntu installed have problem with tempe
 
 To overcome the issue, there is package i8kmon.
 
-sudo apt-get install i8kmon
+* sudo apt-get install i8kmon
 
 configure your values in /usr/bin/i8kmon
 
 change the Default array set config to
 
+<p>
 array set config {
    sysconfig   /etc/i8kmon.conf
    userconfig  ~/.i8kmon
@@ -100,3 +101,4 @@ $ i8kctl
 1.0 A11 78QGMV1 45 -1 0 -1 0 -1 -1
 $ i8kctl
 1.0 A11 78QGMV1 45 -1 0 -1 0 -1 -1
+</p>

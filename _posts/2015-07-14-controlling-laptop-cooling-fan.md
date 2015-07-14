@@ -15,7 +15,7 @@ configure your values in /usr/bin/i8kmon
 change the Default array set config to
 
 ```html
- <p>
+<p>
     array set config {
        sysconfig   /etc/i8kmon.conf
        userconfig  ~/.i8kmon
@@ -102,5 +102,5 @@ change the Default array set config to
     $ i8kctl
     $ i8kctl
     1.0 A11 78QGMV1 45 -1 0 -1 0 -1 -1
- </p>
+</p>
 ```

@@ -9,7 +9,7 @@ relative_permalinks: true
 # Setup
 title:            Jayanth
 tagline:          'Discovering smart way of doing things'
-description:      'This is my static website which shows that i am still alive :P . Follow me <a href="https://twitter.com/jayanthsagar" target="_blank">@jayanthsagar</a>.'
+description:      'This is my portfolio that showcases my best work, It also helps me refer to my previous work. Follow me <a href="https://twitter.com/jayanthsagar" target="_blank">@jayanthsagar</a>.'
 url:              http://jayanthsagar.github.io
 baseurl:          /
 

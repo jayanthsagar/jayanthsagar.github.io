@@ -1431,7 +1431,9 @@ Enter your Gmail account as below :
 -        Blind carbon copy for receipients
 -        Default notification: Only for things I am involved in
 -        Email notifications should be sent for issue added or issue updated (note, status, priority) 
+
 #### LDAP authentication
+
 - Login as administrator
 - Navigate to Administration > LDAP authentication
 - Click on "New authentication mode"

@@ -46,38 +46,54 @@ Use the following command to install :
 
 yum -y install httpd mysql mysql-server
 ```
+<p>
 Allow start services when OS boot :
+</p>
 ```html
 chkconfig httpd on
 chkconfig mysqld on
 service httpd start
 service mysqld start
 ```
+<p>
 Set the password for MySQL
+</p>
 ```html
 /usr/bin/mysql_secure_installation
 ```
+<p>
 Because we not have a password for the root account so you press Enter to skip.
+</p>
 ```html
 Enter current password for root (enter for none):
 ```
+<p>
 Select Yes to set the password for the MySQL root account.
+</p>
 ```html
 Set root password? [Y/n] y
 ```
+<p>
 Enter and confirm your password, remove the anonymous user, select Yes
+</p>
 ```html
 Remove anonymous users? [Y/n] y
 ```
+<p>
 Allow remote login to MySQL as root account, select No.
+</p>
 ```html
 Disallow root login remotely? [Y/n] n
 ```
+<p>
 Delete the test database, select Yes
+</p>
 ```html
 Remove test database and access to it? [Y/n] y
 ```
+<p>
 Reload privilege tables, select Yes
+</p>
 ```html
 Reload privilege tables now? [Y/n] y
 ```

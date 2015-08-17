@@ -1430,7 +1430,9 @@ Enter your Gmail account as below :
 </p>
 
 ```html
+
 cp {REDMINE_ROOT}/config/configuration.yml.example {REDMINE_ROOT}/config/configuration.yml
+
 ```
 
 <p>

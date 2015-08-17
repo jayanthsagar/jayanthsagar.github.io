@@ -1396,7 +1396,8 @@ The simplest is you use features of the default SendMail in the Centos OS by set
 *Note :* Do not use the Tab key to indent when editing the configuration file, you need to use the space bar on the keyboard.
 <p>
 If you use GMail's SMTP, you need to register an email account with the login methods used password normal and disable two-step authentication by smart phone.
-
+</p>
+<p>
 Enter your Gmail account as below :
 </p>
 ```html

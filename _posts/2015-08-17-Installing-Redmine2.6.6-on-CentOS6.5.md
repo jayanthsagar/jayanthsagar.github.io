@@ -1364,6 +1364,7 @@ rpm -ivh epel-release-6-8.noarch.rpm
 yum -y install mod_fcgid
 rm -rf epel-release-6-8.noarch.rpm
 ```
+
 #### Creating Files Directory
 <p>
 This directory contains data files generated during the operation of Redmine as document or image file, we create a new directory in the "/opt".
@@ -1376,6 +1377,7 @@ cd /var/www/redmine/config
 cp configuration.yml.example configuration.yml
 nano configuration.yml
 ```
+
 <p>
 Enter the directory path containing the data files you just created in the previous step into the line "attachments_storage_path".
 </p>
@@ -1390,6 +1392,7 @@ To configure the email we will edit the configuration file.
 ```html
 nano /var/www/redmine/config/configuration.yml
 ```
+
 <p>
 The simplest is you use features of the default SendMail in the Centos OS by settings :
 </p>
@@ -1398,6 +1401,7 @@ The simplest is you use features of the default SendMail in the Centos OS by set
   email_delivery:
    delivery_method: :sendmail
 ```
+
 *Note :* Do not use the Tab key to indent when editing the configuration file, you need to use the space bar on the keyboard.
 <p>
 If you use GMail's SMTP, you need to register an email account with the login methods used password normal and disable two-step authentication by smart phone.
@@ -1418,6 +1422,7 @@ Enter your Gmail account as below :
         user_name: "your_email@gmail.com" 
         password: "your_password" 
 ```
+
 <p>Save and exit</p>
 #### Configuring SMTP
 <p>
@@ -1446,6 +1451,7 @@ Enter your Gmail account as below :
 - Navigate to Administration > LDAP authentication
 - Click on "New authentication mode"
 - Enter the below values in corresponding fields
+
 ```html
         Host: ldap.virtual-labs.ac.in 
         Port: 389 

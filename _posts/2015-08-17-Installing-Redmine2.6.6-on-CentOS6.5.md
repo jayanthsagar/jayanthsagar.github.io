@@ -1368,6 +1368,7 @@ rm -rf epel-release-6-8.noarch.rpm
 <p>
 This directory contains data files generated during the operation of Redmine as document or image file, we create a new directory in the "/opt".
 </p>
+
 ```html
 mkdir -p /opt/redmine/files
 chown -R apache:apache /opt/redmine
@@ -1385,12 +1386,14 @@ Another very important function of Redmine is using email to notify members when
 
 To configure the email we will edit the configuration file.
 </p>
+
 ```html
 nano /var/www/redmine/config/configuration.yml
 ```
 <p>
 The simplest is you use features of the default SendMail in the Centos OS by settings :
 </p>
+
 ```html
   email_delivery:
    delivery_method: :sendmail
@@ -1402,6 +1405,7 @@ If you use GMail's SMTP, you need to register an email account with the login me
 <p>
 Enter your Gmail account as below :
 </p>
+
 ```html
   email_delivery:
    delivery_method: :smtp
@@ -1423,6 +1427,7 @@ Enter your Gmail account as below :
 <p>
     Edit the config/configuration.yml file and near the end where production: is present use:
 </p>
+
 ```html
             production:
                email_delivery:

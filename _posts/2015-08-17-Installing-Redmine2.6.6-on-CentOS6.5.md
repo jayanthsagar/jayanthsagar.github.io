@@ -195,7 +195,8 @@ service httpd restart
 And install phpMyadmin :
 </p>
 ```html
-yum -y install epel-release
+rpm --import http://dag.wieers.com/rpm/packages/RPM-GPG-KEY.dag.txt
+yum install http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
 yum -y install phpmyadmin
 ```
 <p>
@@ -1214,6 +1215,12 @@ rvm_install()
 rvm_install "$@"
 ```
 <p>
+run the shell script
+</p>
+```html
+sh rvm.sh
+```
+<p>
 After successful, we will launch RVM
 </p>
 ```html
@@ -1225,3 +1232,224 @@ The following command will list the versions of Ruby to install :
 ```html
 rvm list known
 ```
+<p>
+We choose the stable version [ruby-] 1.9.3 [-p545], and execute the following command :
+</p>
+```html
+rvm install 1.9.3
+```
+<p>
+The installation process is pretty long time, but you do not need any intervention, after successful, you check with the following command :
+</p>
+```html
+ruby -v
+```
+#### Install Rubygems
+<p>
+Rubygems is a Ruby's packages management program, very popular in applications written by Ruby language and the Ruby On Rails framework.
+</p>
+```html
+yum -y install rubygems
+```
+#### Install Passenger
+<p>
+The full name of the Passenger is Phusion Passenger, known as mod_rails or mod_rack, it is a web application intergrate with Apache and it can operate as a standalone web server support for the Ruby On Rails applications.
+
+Execute the following commands :
+</p>
+```html
+gem install passenger
+passenger-install-apache2-module
+```
+<p>
+After completed, we copy a notification block in the window to create the configuration file in the next steps (select block notification and press C to copy).
+</p>
+```html
+ LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.3-p551/gems/passenger-5.0.15/buildout/apache2/mod_passenger.so
+   <IfModule mod_passenger.c>
+     PassengerRoot /usr/local/rvm/gems/ruby-1.9.3-p551/gems/passenger-5.0.15
+     PassengerDefaultRuby /usr/local/rvm/gems/ruby-1.9.3-p551/wrappers/ruby
+   </IfModule>
+```
+<p>
+Create a new virtual host file for Passenger :
+</p>
+```html
+nano /etc/httpd/conf.d/passenger.conf
+```
+<p>
+Paste the command blocks into the empty file and save it, then restart the Apache service.
+</p>
+```html
+service httpd restart
+```
+<p>
+Create Database for Redmine
+
+Use MySQLAdmin to create an empty database for Redmine, saved password to fill in the configuration file in the next steps.
+</p>
+```html
+mysql --user=root --password=root_password_mysql
+create database redmine_db character set utf8;
+create user 'redmine_admin'@'localhost' identified by 'your_new_password';
+grant all privileges on redmine_db.* to 'redmine_admin'@'localhost';
+quit;
+```
+#### Install Redmine
+<p>
+Redmine is a main program of the project management system, we will download and install the program from the website of Redmine.
+
+Download Redmine version 2.6.x to directory "/var/www" on the Centos OS.
+</p>
+```html
+cd /var/www
+wget http://www.redmine.org/releases/redmine-2.6.6.tar.gz
+```
+<p>
+Extract the folder and rename directory
+</p>
+```html
+tar xvfz redmine-2.6.6.tar.gz
+mv redmine-2.6.6 redmine
+rm -rf redmine-2.6.6.tar.gz
+```
+
+#### Configuring the Database
+<p>
+The next, we need to configure the database was created from the above steps.
+</p>
+```html
+cd /var/www/redmine/config
+cp database.yml.example database.yml
+nano database.yml
+```
+<p>
+Enter name for database, enter username and password of the database. Press CTRL + O to save the file and CTRL + X to exit.
+</p>
+#### Setting up Rails
+<p>
+Install the package library support for Rails using the Bundle.
+</p>
+```html
+cd /var/www/redmine
+gem install bundler
+bundle install
+rake generate_secret_token
+```
+<p>
+The next, we create the database table for the Redmine application.
+</p>
+```html
+RAILS_ENV=production rake db:migrate
+RAILS_ENV=production rake redmine:load_default_data
+```
+#### Activate FCGI
+
+```html
+cd /var/www/redmine/public
+mkdir plugin_assets
+cp dispatch.fcgi.example dispatch.fcgi
+cp htaccess.fcgi.example .htaccess
+```
+
+#### Setting up Apache and FastCGI
+
+```html
+cd /var/www/
+rpm --import https://fedoraproject.org/static/0608B895.txt
+wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+rpm -ivh epel-release-6-8.noarch.rpm
+yum -y install mod_fcgid
+rm -rf epel-release-6-8.noarch.rpm
+```
+#### Creating Files Directory
+<p>
+This directory contains data files generated during the operation of Redmine as document or image file, we create a new directory in the "/opt".
+</p>
+```html
+mkdir -p /opt/redmine/files
+chown -R apache:apache /opt/redmine
+cd /var/www/redmine/config
+cp configuration.yml.example configuration.yml
+nano configuration.yml
+```
+<p>
+Enter the directory path containing the data files you just created in the previous step into the line "attachments_storage_path".
+</p>
+*Note:* You must add a space at the begin of the path "/opt/redmine/files" after character ":"
+#### Configuring Email
+<p
+Another very important function of Redmine is using email to notify members when the contents of each project changes, Redmine can use many different methods to send email that is Sendmail, SMTP, GMail ...
+
+To configure the email we will edit the configuration file.
+</p>
+```html
+nano /var/www/redmine/config/configuration.yml
+```
+<p>
+The simplest is you use features of the default SendMail in the Centos OS by settings :
+</p>
+```html
+  email_delivery:
+   delivery_method: :sendmail
+```
+*Note :* Do not use the Tab key to indent when editing the configuration file, you need to use the space bar on the keyboard.
+<p>
+If you use GMail's SMTP, you need to register an email account with the login methods used password normal and disable two-step authentication by smart phone.
+
+Enter your Gmail account as below :
+</p>
+```html
+  email_delivery:
+   delivery_method: :smtp
+   smtp_settings:
+        enable_starttls_auto: true
+        address: "smtp.gmail.com" 
+        port: 587
+        domain: "smtp.gmail.com" 
+        authentication: :plain
+        user_name: "your_email@gmail.com" 
+        password: "your_password" 
+```
+<p>Save and exit</p>
+#### Configuring SMTP
+<p>
+    Configure sendmail on the machine so that it can send emails. In this particular case sendmail is configured to use mail.foo.com as SMART_HOST for sending emails outside.
+</p>
+```html    cp {REDMINE_ROOT}/config/configuration.yml.example {REDMINE_ROOT}/config/configuration.yml ```
+<p>
+    Edit the config/configuration.yml file and near the end where production: is present use:
+</p>
+```html
+            production:
+               email_delivery:
+                 delivery_method: :sendmail
+```
+
+-    Login as administrator in redmine and go to "Administration -> Settings -> Email notifications" and choose appropriate defaults. In current configuration settings are:
+-        Emission email address:redmine@issues.foo.com
+-        Blind carbon copy for receipients
+-        Default notification: Only for things I am involved in
+-        Email notifications should be sent for issue added or issue updated (note, status, priority) 
+</p>
+#### LDAP authentication
+- Login as administrator
+- Navigate to Administration > LDAP authentication
+- Click on "New authentication mode"
+- Enter the below values in corresponding fields
+```html        
+        Host: ldap.virtual-labs.ac.in 
+        Port: 389 
+        Base DN: dc=virtual-labs,dc=ac,dc=in 
+        Login: uid 
+        "On-the-fly user creation" checkbox 
+```
+-    Save and Test the connection
+-    Login with an LDAP account
+-    Provide the additional details when prompted (name, email, etc.)
+-    Logout and login as administrator
+-    Navigate to Administration > Users
+-    Click on the user name used in last step
+-    Go to the Projects tab
+-    Choose a project name and select a role
+-   Click on Add to give the LDAP user access to the redmine project 

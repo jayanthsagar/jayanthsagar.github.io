@@ -245,10 +245,12 @@ With Password has been set at step install MySQL database in the above.
 </p>
 *Note:* If you install the Redmine system on the PC or in a virtual machine which not on the dedicated server, we need to switch the application phpMyadmin to run on port 8080 because port 80 will be used for Redmine in the next steps.
 
-We need add a port 8080 to the firewall and change the VirtualHost for phpMyadmin.
+We need to add a port 8080 to the firewall and change the VirtualHost for phpMyadmin.
+
 ```html
 nano /etc/sysconfig/iptables
 ```
+
 <p>
 Add the command line :
 </p>

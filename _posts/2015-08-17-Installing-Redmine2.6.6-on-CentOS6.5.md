@@ -1438,7 +1438,7 @@ Enter your Gmail account as below :
 - Navigate to Administration > LDAP authentication
 - Click on "New authentication mode"
 - Enter the below values in corresponding fields
-```html        
+```html
         Host: ldap.virtual-labs.ac.in 
         Port: 389 
         Base DN: dc=virtual-labs,dc=ac,dc=in 

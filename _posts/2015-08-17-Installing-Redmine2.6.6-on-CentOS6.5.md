@@ -185,3 +185,67 @@ The command to install PHP and the packages :
 ```html
 yum -y install php php-mysql php-gd php-imap php-ldap php-mbstring php-odbc php-pear php-xml php-xmlrpc php-pecl-apc php-soap
 ```
+<p>
+Restarting the Apache service :
+</p>
+```html
+service httpd restart
+```
+<p>
+And install phpMyadmin :
+</p>
+```html
+rpm --import http://dag.wieers.com/rpm/packages/RPM-GPG-KEY.dag.txt
+yum install http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+yum -y install phpmyadmin
+```
+<p>
+Editing the virtual host file to allow remote login to the phpMyadmin.
+</p>
+```html
+nano /etc/httpd/conf.d/phpmyadmin.conf
+```
+<p>
+Replace text "Allow from 127.0.0.1" to "Allow from all", save the file and exit.
+</p>
+<p>
+Editing the configuration file for the phpMyadmin
+</p>
+```html
+nano /usr/share/phpmyadmin/config.inc.php
+```
+<p>
+Replace text :
+</p>
+```html
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+```
+<p>
+To :
+</p>
+```html
+$cfg['Servers'][$i]['auth_type'] = 'http';
+```
+<p>
+Save the file and exit, restarting the Apache service :
+</p>
+```html
+service httpd restart
+```
+<p>
+After successfully installed phpMyadmin, you can check at the address :
+</p>
+```html
+http://your-domain/phpmyadmin
+```
+<p>
+Login with account : root / your_password
+
+With Password has been set at step install MySQL database in the above.
+</p>
+*Note:* If you install the Redmine system on the PC or in a virtual machine which not on the dedicated server, we need to switch the application phpMyadmin to run on port 8080 because port 80 will be used for Redmine in the next steps.
+
+We need add a port 8080 to the firewall and change the VirtualHost for phpMyadmin.
+```html
+nano /etc/sysconfig/iptables
+```

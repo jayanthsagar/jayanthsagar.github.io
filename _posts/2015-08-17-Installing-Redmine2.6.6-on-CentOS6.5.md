@@ -1378,7 +1378,7 @@ Enter the directory path containing the data files you just created in the previ
 </p>
 *Note:* You must add a space at the begin of the path "/opt/redmine/files" after character ":"
 #### Configuring Email
-<p
+<p>
 Another very important function of Redmine is using email to notify members when the contents of each project changes, Redmine can use many different methods to send email that is Sendmail, SMTP, GMail ...
 
 To configure the email we will edit the configuration file.

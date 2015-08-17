@@ -8,21 +8,21 @@ title: Installing Redmine2.6.6 on CentOS6.5
 </p>
 <p>
 2.Update packages.
+</p>
 ```html
 yum update
 ```
-</p>
 <p>
 3.Reboot the machine after update.
+</p>
 ```html
 reboot
 ```
-</p>
 <p>
 4.Install the dependencies packages
 
 These are the basic software packages for environment settings and utility tools to compile other packages in the next section.
+</p>
 ```html
 yum -y install nano zip unzip libyaml-devel zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel gcc ruby-devel gcc-c++ make postgresql-devel ImageMagick-devel sqlite-devel perl-LDAP mod_perl perl-Digest-SHA
 ```
-</p>

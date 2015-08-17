@@ -23,14 +23,14 @@ yum update
 reboot
 ```
 
-### Install the dependencies packages.
+#### Install the dependencies packages.
 <p>
 4.These are the basic software packages for environment settings and utility tools to compile other packages in the next section.
 </p>
 ```html
 yum -y install nano zip unzip libyaml-devel zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel gcc ruby-devel gcc-c++ make postgresql-devel ImageMagick-devel sqlite-devel perl-LDAP mod_perl perl-Digest-SHA
 ```
-### Install Apache and MySQL
+#### Install Apache and MySQL
 <p>
 5.Apache is a server application for communicating over the HTTP protocol. Apache runs on operating systems such as Unix, Linux, Microsoft Windows, and other operating systems.
 
@@ -96,4 +96,92 @@ Reload privilege tables, select Yes
 </p>
 ```html
 Reload privilege tables now? [Y/n] y
+```
+#### Turn off SELinux
+<p>
+SELinux is a security feature advanced for Linux operating system, when installing the system you need to turn off this feature to get the process done smoothly, after successful you can turn on back if you want.
+</p>
+```html
+nano /etc/selinux/config
+```
+<p>
+Change the file content :
+</p>
+```html
+SELINUX=disabled
+```
+#### Set up the Hostname
+<p>
+By default when installing a new OS Centos not set the hostname, so we need to setting with the command :
+</p>
+```html
+nano /etc/hosts
+```
+<p>
+Add your domain name or host name that you set on both the command line, save the file and exit, the server name will be changed when restarting.
+</p>
+#### Configuring the Firewall
+<p>
+We do not want to turn off the firewall because it's quite important, so you need to add rules to allow port 80 for HTTP and port 443 for HTTPS.
+
+In the Centos OS, you can configuration firewall by editing files iptables and ip6tables.
+</p>
+```html
+nano /etc/sysconfig/iptables
+```
+<p>
+Press Enter to create a new line after the line of port 22, copy the following two commands and right click on the window to the Paste command.
+</p>
+```html
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+```
+<p>
+Press CTRL + O to save the file and press CTRL + X to exit.
+</p>
+<p>
+The same applies for IP6 firewall :
+</p>
+```html
+nano /etc/sysconfig/ip6tables
+```
+<p>
+Add these lines to the file.
+</p>
+```html
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+```
+<p>
+After you finish editing both files, run the commands to apply the new rules for firewall.
+</p>
+```html
+/etc/init.d/iptables restart
+/etc/init.d/ip6tables restart
+```
+<p>
+Allow turn on the firewall when reboot the operating system.
+</p>
+```html
+chkconfig iptables on
+chkconfig ip6tables on
+```
+<p>
+Finally, we need to restart the system to apply the changes to the SELinux and Hostname.
+</p>
+```html
+reboot
+```
+#### Install PHP and phpMyAdmin
+<p>
+Because we use MySQL database management system, so we need to install phpMyAdmin program management.
+
+phpMyAdmin is a free open source tool written by PHP language to manage MySQL database via a web browser.
+
+It can create, modify or delete databases, tables, fields or records, perform SQL statements, or managing users and permissions.
+
+The command to install PHP and the packages :
+</p>
+```html
+yum -y install php php-mysql php-gd php-imap php-ldap php-mbstring php-odbc php-pear php-xml php-xmlrpc php-pecl-apc php-soap
 ```

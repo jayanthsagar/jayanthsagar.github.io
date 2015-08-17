@@ -1429,7 +1429,9 @@ Enter your Gmail account as below :
     Configure sendmail on the machine so that it can send emails. In this particular case sendmail is configured to use mail.foo.com as SMART_HOST for sending emails outside.
 </p>
 
-```html    cp {REDMINE_ROOT}/config/configuration.yml.example {REDMINE_ROOT}/config/configuration.yml ```
+```html
+cp {REDMINE_ROOT}/config/configuration.yml.example {REDMINE_ROOT}/config/configuration.yml
+```
 
 <p>
     Edit the config/configuration.yml file and near the end where production: is present use:

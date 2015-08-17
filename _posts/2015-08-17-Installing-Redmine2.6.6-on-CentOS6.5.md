@@ -1475,3 +1475,41 @@ cp {REDMINE_ROOT}/config/configuration.yml.example {REDMINE_ROOT}/config/configu
 -    Go to the Projects tab
 -    Choose a project name and select a role
 -   Click on Add to give the LDAP user access to the redmine project 
+
+#### Create Virtual Host for Redmine
+
+Create an Apache configuration file for the Redmine application at the port 80.
+
+nano /etc/httpd/conf.d/redmine.conf
+
+Copy the text below and paste into the editor window, note the information to change your domain name.
+
+```html
+
+<VirtualHost *:80>
+        ServerName your_domain
+        ServerAdmin your_domain@domain.com
+        DocumentRoot /var/www/redmine/public/
+        ErrorLog logs/redmine_error_log
+        <Directory "/var/www/redmine/public/">
+                Options Indexes ExecCGI FollowSymLinks
+                Order allow,deny
+                Allow from all
+                AllowOverride all
+        </Directory>
+</VirtualHost>
+
+```
+
+Save the file configuration and exit.
+#### Running Redmine
+
+Before execute Redmine in the first time, we must permission for the directory installed Redmine and restart Apache service.
+
+```html
+
+cd /var/www
+chown -R apache:apache redmine
+chmod -R 755 redmine
+service httpd restart
+```

@@ -1513,4 +1513,16 @@ chown -R apache:apache redmine
 chmod -R 755 redmine
 service httpd restart
 ```
-<p> </p>
+Redmine will run at the following address URL :
+
+```html
+
+http://your-domain
+
+```
+
+Login to system with an administrator account : admin / admin
+
+You can change your password after successful login.
+
+We can see Redmine has running but very primitive, in the next steps we will install the support plugins and customized Redmine to use professional.

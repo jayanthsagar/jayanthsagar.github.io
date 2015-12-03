@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Four prerequisits for devops success
+title: Four prerequisites for devops success
 ---
 <p class="message">
-This book comes handy if you are a DevOps and confused with what best practice to follow. I suggest to read it daily before you start your work.</p>
+This book comes handy if you are a DevOps engineer and confused with what best practice to follow. I suggest to read it daily before you start your work.</p>
 
 
 What is it about?

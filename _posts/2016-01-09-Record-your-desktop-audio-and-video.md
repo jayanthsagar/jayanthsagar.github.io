@@ -9,7 +9,7 @@ This comes handy when you were not allowed to download a video from a website bu
 Libav is the library which is going to help us in such situations.
 </p><p>Libav is a set of tools which contains following:
 </p><ol>
-1.Avplay - A video/audio player like VLC.
+<li>1.Avplay - A video/audio player like VLC.</li>
 2.Avconv - A multimedia converter plus a video & audio recorder from different sources.
 3.Avprobe - A tool that connects to the multimedia file stream and returns many useful information and statistics about it.
 4.Libavfilter - A filtering API for different Libav tools.

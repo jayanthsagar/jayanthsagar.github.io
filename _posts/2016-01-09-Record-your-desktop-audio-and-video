@@ -3,7 +3,7 @@ layout: post
 title: Record your desktop audio and video
 ---
 <p class="message">
-This come handy when you were not allowed to download a video from a website but allowed to play.
+This comes handy when you were not allowed to download a video from a website but allowed to play.
 </p>
 <p>
 Libav is the library which is going to help us in such situations.
@@ -14,16 +14,18 @@ Libav is a set of tools which contains following:
 4.Libavfilter - A filtering API for different Libav tools.
 
 Step1: Install Avconv tool
+</p>
 ```html
 
 sudo apt-get update
 sudo apt-get install libav-tools
 ```
-
+<p>
 Step2: Start video recording of desktop
 ```html
 avconv -f x11grab -r 25 -s 1366x768 -i :0.0 -vcodec libx264 -threads 4 $HOME/output.avi
 ```
+<p>
 Explanation of above command:
 -    avconv -f x11grab is the default command to capture video from the X server.
 -    -r 25 is the frame rate you want, you may change it if you like.
@@ -41,16 +43,19 @@ open the output using VLC or avplay
 Step3: Start Video and Audio recorning of your desktop
 
 To record both audio and video we should know the hardware address of our output hardware(speaker)
+</p>
 ```html
 arecord -l
 ```
+<p>
 The above command will list the available output hardware.
 Now start the recording using
+</p>
 ```html
 avconv -f alsa -i hw:0 -f x11grab -r 25 -s 1366x768 -i :0.0 -vcodec libx264 -threads 4 output-file2.avi
 ```
+<p>
 Explanation:
 -    -f alsa is an option to capture the sound from the alsa device.
 -    -i hw:1 is an option to take the audio input source from the “hw:1” device which is the first – and the only – input sound device in my computer.
-
-
+</p>

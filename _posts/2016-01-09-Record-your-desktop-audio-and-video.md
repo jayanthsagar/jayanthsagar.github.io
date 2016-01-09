@@ -14,13 +14,17 @@ Libav is the library which is going to help us in such situations.
 </li><li>Avprobe - A tool that connects to the multimedia file stream and returns many useful information and statistics about it.
 </li><li>Libavfilter - A filtering API for different Libav tools.
 </li></ol>
+
 #### Step1: Install Avconv tool
+
 ```html
 
 sudo apt-get update
 sudo apt-get install libav-tools
 ```
+
 #### Step2: Start video recording of desktop
+
 ```html
 avconv -f x11grab -r 25 -s 1366x768 -i :0.0 -vcodec libx264 -threads 4 $HOME/output.avi
 ```

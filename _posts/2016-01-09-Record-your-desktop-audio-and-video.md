@@ -14,17 +14,13 @@ Libav is the library which is going to help us in such situations.
 </li><li>Avprobe - A tool that connects to the multimedia file stream and returns many useful information and statistics about it.
 </li><li>Libavfilter - A filtering API for different Libav tools.
 </li></ol>
-<p>
 #### Step1: Install Avconv tool
-</p>
 ```html
 
 sudo apt-get update
 sudo apt-get install libav-tools
 ```
-<p>
 #### Step2: Start video recording of desktop
-</p>
 ```html
 avconv -f x11grab -r 25 -s 1366x768 -i :0.0 -vcodec libx264 -threads 4 $HOME/output.avi
 ```
@@ -45,9 +41,8 @@ Ctrl+c will terminate the command and save the output file.
 
 open the output using VLC or avplay
 </p>
-<p>
 #### Step3: Start Video and Audio recorning of your desktop
-
+<p>
 To record both audio and video we should know the hardware address of our output hardware(speaker)
 </p>
 ```html

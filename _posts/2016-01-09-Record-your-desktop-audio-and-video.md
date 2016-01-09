@@ -7,12 +7,14 @@ This comes handy when you were not allowed to download a video from a website bu
 </p>
 <p>
 Libav is the library which is going to help us in such situations.
-Libav is a set of tools which contains following:
+</p><p>Libav is a set of tools which contains following:
+</p><ol>
 1.Avplay - A video/audio player like VLC.
 2.Avconv - A multimedia converter plus a video & audio recorder from different sources.
 3.Avprobe - A tool that connects to the multimedia file stream and returns many useful information and statistics about it.
 4.Libavfilter - A filtering API for different Libav tools.
-
+</ol>
+<p>
 Step1: Install Avconv tool
 </p>
 ```html
@@ -22,11 +24,14 @@ sudo apt-get install libav-tools
 ```
 <p>
 Step2: Start video recording of desktop
+</p>
 ```html
 avconv -f x11grab -r 25 -s 1366x768 -i :0.0 -vcodec libx264 -threads 4 $HOME/output.avi
 ```
+
 <p>
 Explanation of above command:
+<ul>
 -    avconv -f x11grab is the default command to capture video from the X server.
 -    -r 25 is the frame rate you want, you may change it if you like.
 -    -s 1920×1080 is your system’s screen resolution, change it to your current system resolution, it’s very important to do this.
@@ -35,7 +40,7 @@ Explanation of above command:
 -    -threads 4 is the number of threads, you may change it as well if you like.
 -    $HOME/output is the destination path where you want to save the file.
 -    .avi is the video format, you may change it to “flv”, “mp4”, “wmv”, “mov”, “mkv”.
-
+</ul>
 Ctrl+c will terminate the command and save the output file.
 
 open the output using VLC or avplay

@@ -44,7 +44,8 @@ Explanation of above command:
 Ctrl+c will terminate the command and save the output file.
 
 open the output using VLC or avplay
-
+</p>
+<p>
 Step3: Start Video and Audio recorning of your desktop
 
 To record both audio and video we should know the hardware address of our output hardware(speaker)

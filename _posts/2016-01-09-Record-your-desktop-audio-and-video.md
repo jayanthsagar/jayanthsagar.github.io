@@ -63,10 +63,12 @@ avconv -f alsa -i hw:0 -f x11grab -r 25 -s 1366x768 -i :0.0 -vcodec libx264 -thr
 ```
 <p>
 Explanation:
+</p>
 <ul>
 <li>    -f alsa is an option to capture the sound from the alsa device.
 </li><li>    -i hw:1 is an option to take the audio input source from the “hw:1” device which is the first – and the only – input sound device in my computer.
 </li></ul>
+
 <p>
 <div id="disqus_thread1"></div>
 <script>

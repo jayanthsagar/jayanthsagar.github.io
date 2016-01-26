@@ -14,6 +14,7 @@ title: Installing Sublime Text on Ubuntu14.04
 
 <h6>Update and Install sublime:</h6>
 * sudo apt-get update; sudo apt-get install -y sublime-text-installer
+
 <p>
 <div id="disqus_thread"></div>
 <script>

@@ -67,8 +67,7 @@ Explanation:
 <li>    -f alsa is an option to capture the sound from the alsa device.
 </li><li>    -i hw:1 is an option to take the audio input source from the “hw:1” device which is the first – and the only – input sound device in my computer.
 </li></ul>
-</p>
-
+<p>
 <div id="disqus_thread1"></div>
 <script>
     /**
@@ -91,4 +90,4 @@ Explanation:
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
+</p>

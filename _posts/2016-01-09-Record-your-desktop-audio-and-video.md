@@ -69,7 +69,6 @@ Explanation:
 </li></ul>
 </p>
 
-<p>
 <div id="disqus_thread1"></div>
 <script>
     /**
@@ -92,5 +91,4 @@ Explanation:
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-</p>
 

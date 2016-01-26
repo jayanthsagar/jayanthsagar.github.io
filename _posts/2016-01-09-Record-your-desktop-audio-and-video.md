@@ -68,6 +68,7 @@ Explanation:
 </li><li>    -i hw:1 is an option to take the audio input source from the “hw:1” device which is the first – and the only – input sound device in my computer.
 </li></ul>
 </p>
+
 <p>
 <div id="disqus_thread1"></div>
 <script>

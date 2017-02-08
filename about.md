@@ -2,6 +2,6 @@
 layout: page
 title: Resume
 ---
-<a href=../JayanthSagar.pdf>Resume</a>
+<a href="https://www.linkedin.com/in/jayanthsagar/">LinkedIn profile</a>
 
  

@@ -11,9 +11,9 @@ I have taken reference from this link <a href="http://blog.yjl.im/2010/08/disabl
 </p>
 <p>Following steps will help you compile the code and run it on boot time which eneables keyboard as soon as you start your computer.
 
-<p>1.Compile the C program using #gcc -o keyboard keyboard.c</p>
-<p>Copy the output file to your desired location (/home/superman/keyboard)
-</p><p>To run the keyboard on startup we will set a init script in /etc/init.d/keyboard with following:</p>
+<p>1. Compile the C program using #gcc -o keyboard keyboard.c</p>
+<p>2. Copy the output file to your desired location (/home/superman/keyboard)
+</p><p>3. To run the keyboard on startup we will set a init script in /etc/init.d/keyboard with following:</p>
 ``` #!/bin/sh -e
     ### BEGIN INIT INFO
     # Provides:          keyboard
@@ -28,7 +28,7 @@ I have taken reference from this link <a href="http://blog.yjl.im/2010/08/disabl
     ### END INIT INFO
     exec /home/superman/keyboard 1
 ```
-<p>Add following code to /etc/init/keyboard</p>
+<p>4. Add following code to /etc/init/keyboard</p>
 
 ```  description "Fixing keyboard issue in lenovo ideapad"
 
@@ -37,7 +37,7 @@ I have taken reference from this link <a href="http://blog.yjl.im/2010/08/disabl
 
 	exec /etc/init.d/keyboard
 ```
-<p> Final step run the following command to update </p>
+<p> 5. Final step run the following command to update </p>
 ``` sudo update-rc.d keyboard defaults``` 
 
 #### From next boot your machine gets booted with keyboard enabled

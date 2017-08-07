@@ -31,13 +31,11 @@ I have taken reference from this link <a href="http://blog.yjl.im/2010/08/disabl
 <p>4. Add following code to /etc/init/keyboard</p>
 
 ```  description "Fixing keyboard issue in lenovo ideapad"
-
-	start on runlevel [2345]
-	stop on runlevel [!2345]
-
-	exec /etc/init.d/keyboard
+     start on runlevel [2345]
+     stop on runlevel [!2345]
+     exec /etc/init.d/keyboard
 ```
 <p> 5. Final step run the following command to update </p>
-``` sudo update-rc.d keyboard defaults``` 
-
+``` sudo update-rc.d keyboard defaults
+``` 
 #### From next boot your machine gets booted with keyboard enabled

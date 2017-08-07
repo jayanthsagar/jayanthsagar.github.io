@@ -14,25 +14,23 @@ I have taken reference from this link <a href="http://blog.yjl.im/2010/08/disabl
 <p>1.Compile the C program using #gcc -o keyboard keyboard.c</p>
 <p>Copy the output file to your desired location (/home/superman/keyboard)
 </p><p>To run the keyboard on startup we will set a init script in /etc/init.d/keyboard with following:</p>
-### a
-```html #!/bin/sh -e
-	### BEGIN INIT INFO
-	# Provides:          keyboard
-	# Required-Start:    
-	# Required-Stop:     
-	# Should-Start:      checkroot
-	# Should-Stop:
-	# Default-Start:     S
-	# Default-Stop:
-	# Short-Description: Load the modules listed in /etc/modules.
-	# Description:       Load the modules listed in /etc/modules.
-	### END INIT INFO
-	exec /home/superman/keyboard 1
+``` #!/bin/sh -e
+    ### BEGIN INIT INFO
+    # Provides:          keyboard
+    # Required-Start:    
+    # Required-Stop:     
+    # Should-Start:      checkroot
+    # Should-Stop:
+    # Default-Start:     S
+    # Default-Stop:
+    # Short-Description: Load the modules listed in /etc/modules.
+    # Description:       Load the modules listed in /etc/modules.
+    ### END INIT INFO
+    exec /home/superman/keyboard 1
 ```
 <p>Add following code to /etc/init/keyboard</p>
-### a
 
-``` description	"Fixing keyboard issue in lenovo ideapad"
+```  description "Fixing keyboard issue in lenovo ideapad"
 
 	start on runlevel [2345]
 	stop on runlevel [!2345]
@@ -40,7 +38,6 @@ I have taken reference from this link <a href="http://blog.yjl.im/2010/08/disabl
 	exec /etc/init.d/keyboard
 ```
 <p> Final step run the following command to update </p>
-### a
 ``` sudo update-rc.d keyboard defaults``` 
 
 #### From next boot your machine gets booted with keyboard enabled

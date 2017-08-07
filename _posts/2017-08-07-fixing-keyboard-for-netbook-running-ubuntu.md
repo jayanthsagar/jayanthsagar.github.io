@@ -28,19 +28,19 @@ I have taken reference from this link <a href="http://blog.yjl.im/2010/08/disabl
 	# Description:       Load the modules listed in /etc/modules.
 	### END INIT INFO
 	exec /home/superman/keyboard 1
-	```
+```
 <p>Add following code to /etc/init/keyboard</p>
 ### a
 
-```description	"Fixing keyboard issue in lenovo ideapad"
+``` description	"Fixing keyboard issue in lenovo ideapad"
 
-start on runlevel [2345]
-stop on runlevel [!2345]
+	start on runlevel [2345]
+	stop on runlevel [!2345]
 
-exec /etc/init.d/keyboard
+	exec /etc/init.d/keyboard
 ```
 <p> Final step run the following command to update </p>
 ### a
 ``` sudo update-rc.d keyboard defaults``` 
 
-### From next boot your machine gets booted with keyboard enabled
+#### From next boot your machine gets booted with keyboard enabled
